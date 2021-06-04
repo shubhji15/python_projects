@@ -1,10 +1,9 @@
-from getpass import getpass
+#from getpass4 import getpass
 
 
 
 # -------------------------
 def new_game():
-
     guesses = []
     correct_guesses = 0
     question_num = 1
@@ -107,7 +106,7 @@ admin = ['admin','admin123']
 def admin_login():
     print('>>>>>>>>>>>>>Login<<<<<<<<<<<<<<<<<<')
     username = input('Please enter user name  :')
-    password = getpass('Please enter the password   :')
+    password = input('Please enter the password   :')
     if username ==admin[0] and password == admin[1]:
         print('Admin Login')
     else:
@@ -117,13 +116,13 @@ def admin_login():
 def student_login():
     print('>>>>>>>>>>>>>Login<<<<<<<<<<<<<<<<<<')
     username = input('Please enter user name  :')
-    password = getpass('Please enter the password   :')
+    password = input('Please enter the password   :')
     for everything in studentList:       
         UserName = everything[0]
         PassWord = everything[1]
 
         if username == UserName and password == PassWord:
-            print("Student Logged on.")
+            print(username +" Logged on.")
             break
     else:
         print('Invalid user_name or password')
@@ -132,11 +131,11 @@ def registration():
     print('>>>>>>>>>>>>>Registration<<<<<<<<<<<<<<<<<<')
     l1 =[]
     username = input('Please enter user name  :')
-    password = getpass('Please enter the password   :')
+    password = input('Please enter the password   :')
     l1.append(username)
     l1.append(password)
     studentList.append(l1)
-    print(studentList)
+    #print(studentList)
 #------------------------------------------------------------------------------------------------------------------------------
 
               
@@ -189,5 +188,8 @@ if choice == 'Login':
 elif choice == 'Registration':
     registration()
     student_login()
-
-                  
+    new_game()
+    play_again()
+    while play_again():
+        new_game()
+    print("Byeeeeee!")
