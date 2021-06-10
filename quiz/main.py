@@ -1,7 +1,6 @@
-#from getpass4 import getpass
+from getpass import getpass
 
-
-
+l2 = []  # to store the toppers
 # -------------------------
 def new_game():
     guesses = []
@@ -106,7 +105,7 @@ admin = ['admin','admin123']
 def admin_login():
     print('>>>>>>>>>>>>>Login<<<<<<<<<<<<<<<<<<')
     username = input('Please enter user name  :')
-    password = input('Please enter the password   :')
+    password = getpass('Please enter the password   :')
     if username ==admin[0] and password == admin[1]:
         print('Admin Login')
     else:
@@ -114,15 +113,18 @@ def admin_login():
         admin_login()
     
 def student_login():
+    l1 = []
     print('>>>>>>>>>>>>>Login<<<<<<<<<<<<<<<<<<')
     username = input('Please enter user name  :')
-    password = input('Please enter the password   :')
+    password =  getpass('Please enter the password   :')
     for everything in studentList:       
         UserName = everything[0]
         PassWord = everything[1]
 
         if username == UserName and password == PassWord:
-            print(username +" Logged on.")
+            print(username+ " Logged on.")
+            #(l1.append(username, +str(display_score.score()) + "%"))
+            print(l1)
             break
     else:
         print('Invalid user_name or password')
@@ -131,11 +133,11 @@ def registration():
     print('>>>>>>>>>>>>>Registration<<<<<<<<<<<<<<<<<<')
     l1 =[]
     username = input('Please enter user name  :')
-    password = input('Please enter the password   :')
+    password = getpass('Please enter the password   :')
     l1.append(username)
     l1.append(password)
     studentList.append(l1)
-    #print(studentList)
+    print(studentList)
 #------------------------------------------------------------------------------------------------------------------------------
 
               
@@ -189,7 +191,6 @@ elif choice == 'Registration':
     registration()
     student_login()
     new_game()
-    play_again()
     while play_again():
         new_game()
     print("Byeeeeee!")
